@@ -1,9 +1,9 @@
 <script setup>
-import StudentTable from '../components/StudentTable.vue';
+import StudentList from '../components/StudentList.vue';
 </script>
 
 <template>
   <main>
-    <StudentTable />
+    <StudentList />
   </main>
 </template>

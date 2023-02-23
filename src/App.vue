@@ -5,7 +5,12 @@ import SideBar from "./components/SideBar.vue";
 
 <template>
   <div class="app">
-    <SideBar />
+    <div class="side-bar">
+      <SideBar />
+    </div>
+    <div class="router-view">
+      <RouterView />
+    </div>
   </div>
   <!-- <header>
     <img
@@ -25,9 +30,7 @@ import SideBar from "./components/SideBar.vue";
         <RouterLink to="/signup">SignUp</RouterLink>
       </nav>
     </div>
-  </header> -->
-
-  <RouterView />
+  </header>-->
 </template>
 
 <style scoped>
@@ -35,5 +38,10 @@ import SideBar from "./components/SideBar.vue";
   display: block;
   width: 100vw;
   height: 100vh;
+}
+.router-view {
+  position: absolute;
+  top: 20px;
+  left: 270px;
 }
 </style>
