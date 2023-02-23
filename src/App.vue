@@ -12,36 +12,22 @@ import SideBar from "./components/SideBar.vue";
       <RouterView />
     </div>
   </div>
-  <!-- <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/signup">SignUp</RouterLink>
-      </nav>
-    </div>
-  </header>-->
 </template>
 
 <style scoped>
-.app {
-  display: block;
+.app{
   width: 100vw;
   height: 100vh;
 }
+.side-bar {
+  float: left;
+  width: 240px;
+  height: 100vh;
+}
 .router-view {
-  position: absolute;
-  top: 20px;
-  left: 270px;
+  float: left;
+  width: calc(100% - 240px);
+  height: 100vh;
+  background-color: #f7f7f7;
 }
 </style>

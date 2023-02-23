@@ -129,7 +129,13 @@ export default {
 
 <style scoped>
 .container {
+  position: relative;
+  top: 20px;
   text-align: center;
+}
+
+h4 {
+  padding: 20px;
 }
 
 th {
