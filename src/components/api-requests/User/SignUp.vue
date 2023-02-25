@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form-container {
   position: absolute;
   top: calc(50% - 150px);

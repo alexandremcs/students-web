@@ -4,6 +4,9 @@
       <RouterLink to="/">
         <button class="btn btn-primary">Home</button>
       </RouterLink>
+      <RouterLink to="/addstudent">
+        <button class="btn btn-primary">Adicionar Estudante</button>
+      </RouterLink>
     </nav>
 
     <footer>
