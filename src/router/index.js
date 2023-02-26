@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 
-const isAuthenticated = false
+const isAuthenticated = true
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,17 +14,17 @@ const router = createRouter({
     {
       path: "/signup",
       name: "signup",
-      component: () => import("../views/SignUp.vue"),
+      component: () => import("../components/api-requests/User/SignUp.vue"),
     },
     {
       path: "/signin",
       name: "signin",
-      component: () => import("../views/SignIn.vue"),
+      component: () => import("../components/api-requests/User/SignIn.vue"),
     },
     {
       path: "/addstudent",
       name: "addStudent",
-      component: () => import("../views/AddStudent.vue"),
+      component: () => import("../components/api-requests/Student/AddStudent.vue"),
     },
   ],
 });
