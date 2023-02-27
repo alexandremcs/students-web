@@ -43,12 +43,15 @@ export default {
     addStudent() {
       const requestOptions = {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${this.$cookies.get("accessToken")}`
+        },
         body: JSON.stringify({
-          studentName: this.studentName,
-          studentCourse: this.studentCourse,
-          studentAge: this.studentAge,
-          studentRegistration: this.studentRegistration
+          name: this.studentName,
+          course: this.studentCourse,
+          age: this.studentAge,
+          registration: this.studentRegistration
         }),
       };
 

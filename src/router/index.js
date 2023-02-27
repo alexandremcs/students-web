@@ -14,17 +14,17 @@ const router = createRouter({
     {
       path: "/signup",
       name: "signup",
-      component: () => import("../components/api-requests/User/SignUp.vue"),
+      component: () => import("../views/SignUp.vue"),
     },
     {
       path: "/signin",
       name: "signin",
-      component: () => import("../components/api-requests/User/SignIn.vue"),
+      component: () => import("../views/SignIn.vue"),
     },
     {
       path: "/addstudent",
       name: "addStudent",
-      component: () => import("../components/api-requests/Student/AddStudent.vue"),
+      component: () => import("../views/AddStudent.vue"),
     },
   ],
 });

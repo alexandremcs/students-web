@@ -14,12 +14,12 @@
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <tr v-for="item in items">
-            <td scope="row">{{ items.indexOf(item) + 1 }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.course }}</td>
-            <td>{{ item.age }}</td>
-            <td>{{ item.registration }}</td>
+          <tr v-for="student in students">
+            <td scope="row">{{ students.indexOf(student) + 1 }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.registration }}</td>
             <td class="actions">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,103 +55,26 @@
 
 <script>
 export default {
-  data() {
-    return {
-      items: [
-        {
-          name: "Bob",
-          course: "Computer Science",
-          age: 35,
-          registration: 10050,
-        },
-        {
-          name: "Alice",
-          course: "Biology",
-          age: 25,
-          registration: 10051,
-        },
-        {
-          name: "Mike",
-          course: "Astrophysics",
-          age: 22,
-          registration: 10052,
-        },
-        {
-          name: "Ada",
-          course: "Mathematics",
-          age: 21,
-          registration: 10053,
-        },
-        {
-          name: "John",
-          course: "Medicine",
-          age: 39,
-          registration: 10054,
-        },
-        {
-          name: "Bob",
-          course: "Computer Science",
-          age: 35,
-          registration: 10050,
-        },
-        {
-          name: "Alice",
-          course: "Biology",
-          age: 25,
-          registration: 10051,
-        },
-        {
-          name: "Mike",
-          course: "Astrophysics",
-          age: 22,
-          registration: 10052,
-        },
-        {
-          name: "Ada",
-          course: "Mathematics",
-          age: 21,
-          registration: 10053,
-        },
-        {
-          name: "John",
-          course: "Medicine",
-          age: 39,
-          registration: 10054,
-        },
-        {
-          name: "Bob",
-          course: "Computer Science",
-          age: 35,
-          registration: 10050,
-        },
-        {
-          name: "Alice",
-          course: "Biology",
-          age: 25,
-          registration: 10051,
-        },
-        {
-          name: "Mike",
-          course: "Astrophysics",
-          age: 22,
-          registration: 10052,
-        },
-        {
-          name: "Ada",
-          course: "Mathematics",
-          age: 21,
-          registration: 10053,
-        },
-        {
-          name: "John",
-          course: "Medicine",
-          age: 39,
-          registration: 10054,
-        },
-      ],
-    };
-  },
-};
+    name: "get-all-students",
+    data() {
+        return {
+            students: []
+        }
+    },
+    async created() {
+        const headers = {
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${this.$cookies.get("accessToken")}`
+        }
+        fetch("http://localhost:3000/student", { headers })
+            .then(response => response.json())
+            .then(data => this.students = data.data)
+            .catch(error => {
+                console.log(error)
+            })
+        console.log(this.students)
+    }
+}
 </script>
 
 <style scoped>

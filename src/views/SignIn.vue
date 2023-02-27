@@ -17,6 +17,7 @@
 
 <script>
 export default {
+ 
   data() {
     return {
       username: null,
@@ -36,7 +37,13 @@ export default {
 
       fetch("http://localhost:3000/user/signin", requestOptions)
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => { 
+          this.$cookies.set('accessToken', data.accessToken)
+          console.log(data.accessToken)
+        })
+        .catch(error => {
+          console.log(error)
+        })
     },
   },
 };
