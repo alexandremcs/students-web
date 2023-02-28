@@ -45,19 +45,26 @@ export default {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${this.$cookies.get("accessToken")}`
+          Authorization: `Bearer ${this.$cookies.get("accessToken")}`,
         },
         body: JSON.stringify({
           name: this.studentName,
           course: this.studentCourse,
           age: this.studentAge,
-          registration: this.studentRegistration
+          registration: this.studentRegistration,
         }),
       };
 
       fetch("http://localhost:3000/student", requestOptions)
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((response) => {
+          response.json();
+          alert("Estudante adicionado com sucesso!")
+          this.studentName = null;
+          this.studentCourse = null;
+          this.studentAge = null;
+          this.studentRegistration = null;
+        })
+        .catch((error) => console.log(error));
     },
   },
 };
