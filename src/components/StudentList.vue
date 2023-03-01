@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div v-if="this.$cookies.get('accessToken')" class="container">
     <h4 class="header">Alunos Matriculados</h4>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
@@ -51,6 +51,7 @@
       </table>
     </div>
   </div>
+  <h2 v-else class="container">Você precisa logar para ver o conteúdo!</h2>
 </template>
 
 <script>
