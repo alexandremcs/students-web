@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <tr v-for="student in students">
+          <tr v-for="student in students" v-bind:key="student.id">
             <td scope="row">{{ students.indexOf(student) + 1 }}</td>
             <td>{{ student.name }}</td>
             <td>{{ student.course }}</td>
