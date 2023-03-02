@@ -39,7 +39,10 @@ export default {
         .then((response) => response.json())
         .then((data) => { 
           this.$cookies.set('accessToken', data.accessToken)
-          console.log(data.accessToken)
+          this.$cookies.set('refreshToken', data.refreshToken)
+          this.username = ''
+          this.password = ''
+          this.$router.push('/')
         })
         .catch(error => {
           console.log(error)
