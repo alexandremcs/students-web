@@ -85,6 +85,10 @@ export default {
   text-align: center;
 }
 
+p {
+  width: auto;
+}
+
 h4 {
   padding: 20px;
 }
