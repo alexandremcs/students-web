@@ -49,6 +49,9 @@
           </tr>
         </tbody>
       </table>
+      <div class="pagination">
+        <a v-for=""></a>
+      </div>
     </div>
   </div>
   <h2 v-else class="container">Você precisa logar para ver o conteúdo!</h2>
@@ -56,26 +59,35 @@
 
 <script>
 export default {
-    name: "get-all-students",
-    data() {
-        return {
-            students: []
-        }
-    },
-    async created() {
-        const headers = {
-            "Content-Type": "application/json",
-            'Authorization': `Bearer ${this.$cookies.get("accessToken")}`
-        }
-        fetch("http://localhost:3000/student", { headers })
-            .then(response => response.json())
-            .then(data => this.students = data.data)
-            .catch(error => {
-                console.log(error)
-            })
-        console.log(this.students)
-    }
-}
+  name: "get-all-students",
+  data() {
+    return {
+      students: [],
+      pageIndex: 0,
+      pageSize: 5,
+      total: 0,
+    };
+  },
+  async created() {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${this.$cookies.get("accessToken")}`,
+    };
+    fetch(`http://localhost:3000/student?pageIndex=${this.pageIndex}`, {
+      headers,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.students = data.data;
+        this.total = data.total;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(this.students);
+    
+  },
+};
 </script>
 
 <style scoped>
