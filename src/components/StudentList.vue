@@ -48,18 +48,21 @@
             </td>
           </tr>
         </tbody>
-      </table>
-      <div class="pagination">
-        <a v-for=""></a>
-      </div>
+      </table>      
+      <pagination v-model="pageIndex" :records=total :per-page=pageSize @paginate="myCallback"/>
     </div>
   </div>
   <h2 v-else class="container">Você precisa logar para ver o conteúdo!</h2>
 </template>
 
 <script>
+import Pagination from 'v-pagination-3'
+
 export default {
   name: "get-all-students",
+  components: {
+    Pagination
+  },
   data() {
     return {
       students: [],
