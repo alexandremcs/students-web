@@ -48,8 +48,7 @@
             </td>
           </tr>
         </tbody>
-      </table>      
-      <pagination v-model="pageIndex" :records=total :per-page=pageSize @paginate="myCallback"/>
+      </table>
     </div>
   </div>
   <h2 v-else class="container">Você precisa logar para ver o conteúdo!</h2>
