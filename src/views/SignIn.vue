@@ -42,7 +42,7 @@ export default {
           this.$cookies.set('refreshToken', data.refreshToken)
           this.username = ''
           this.password = ''
-          this.$router.push('/')
+          window.location.href = "http://127.0.0.1:5173/"
         })
         .catch(error => {
           console.log(error)

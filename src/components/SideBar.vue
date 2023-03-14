@@ -48,7 +48,7 @@
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
         </svg>
         <p>Olá, usuário!</p>
-        <a v-on:click="signOut()">Sair</a>
+        <a v-on:click="signOut()" class="signout">Sair</a>
       </div>
     </footer>
   </div>
@@ -60,8 +60,7 @@ export default {
     signOut() {
       this.$cookies.remove("accessToken");
       this.$cookies.remove("refreshToken");
-      console.log("Deslogado")
-      console.log(this.$cookies.get('accessToken'))
+      window.location.href = "http://127.0.0.1:5173/"
     },
   },
 };
@@ -111,4 +110,15 @@ footer {
 .user-svg {
   margin-top: 5px;
 }
+
+.signout{
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.signout:hover{
+  color: #00ccff;
+}
+
 </style>
