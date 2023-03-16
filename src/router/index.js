@@ -30,6 +30,9 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from) => {
+  if (this.$cookies.get('accessToken') == null || '') {
+    isAuthenticated = false;
+  }
   if (
     // make sure the user is authenticated
     !isAuthenticated &&
