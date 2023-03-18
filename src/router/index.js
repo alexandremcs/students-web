@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 
-let isAuthenticated = true
+let isAuthenticated = false
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,9 +30,6 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from) => {
-  if (this.$cookies.get('accessToken') == null || '') {
-    isAuthenticated = false;
-  }
   if (
     // make sure the user is authenticated
     !isAuthenticated &&
